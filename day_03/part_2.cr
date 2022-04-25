@@ -31,7 +31,8 @@ private def find_rating(
       end
     end
     
-    filtered_input = yield(ones.size, zeros.size) ? ones : zeros
+    keep_ones = yield ones.size, zeros.size
+    filtered_input = keep_ones ? ones : zeros
     i += 1
   end
 
