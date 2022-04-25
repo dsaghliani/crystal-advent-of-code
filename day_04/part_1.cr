@@ -7,10 +7,8 @@ def solve(numbers : Array(Int32), boards_data : Array(Int32))
   numbers.each do |number|
     boards.each do |board|
       won = board.mark(number)
-
       if won
-        sum = board.sum_unmarked()
-        return sum * number
+        return board.sum_unmarked() * number
       end
     end
   end

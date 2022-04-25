@@ -10,7 +10,6 @@ def solve(numbers : Array(Int32), boards_data : Array(Int32))
 
     leftover_boards.each do |board|
       won = board.mark(number)
-
       if won
         won_boards << board
 

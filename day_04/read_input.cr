@@ -10,6 +10,5 @@ def read_input(file_path : String)
     boards_data += row.split().map(&TO_I32)
   end
 
-
   {numbers, boards_data}
 end
