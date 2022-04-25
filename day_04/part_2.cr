@@ -6,21 +6,20 @@ def solve(numbers : Array(Int32), boards_data : Array(Int32))
   won_boards = [] of Board
 
   numbers.each do |number|
-    boards.each do |board|
+    leftover_boards = boards - won_boards
+
+    leftover_boards.each do |board|
       won = board.mark(number)
 
       if won
         won_boards << board
 
-        if boards.size == won_boards.size
+        if leftover_boards.size() == 1
           sum = board.sum_unmarked()
           return sum * number
         end
       end
     end
-
-    won_boards.each() do |board| boards.delete(board) end
-    won_boards.clear()
   end
 
   raise "Couldn't find a winner."
