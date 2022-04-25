@@ -22,9 +22,11 @@ class Board
   end
 
   private def won?()
+    marked = ->(num : Int32) { @marked.includes?(num) }
+
     # Check by row.
     @numbers.each_slice(WIDTH) do |row|
-      if row.all?() { |num| @marked.includes?(num) }
+      if row.all?(&marked)
         return true
       end
     end
@@ -38,7 +40,7 @@ class Board
         column << @numbers[index]
       end
 
-      if column.all?() { |num| @marked.includes?(num) }
+      if column.all?(&marked)
         return true
       end
     end
